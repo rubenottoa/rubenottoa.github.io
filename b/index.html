@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>b 站下载-哔哩哔哩客户端_App下载安装_电脑版下载_视频缓存工具</title>
+<meta name="description" content="b 站下载页面围绕哔哩哔哩客户端获取展开，整理 App 下载安装、电脑版下载、视频缓存与离线观看的常见方式，说明各端功能差异、版本选择、安装步骤与安全注意事项，帮助用户按设备类型找到合适的 b 站下载途径并正确使用。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff6699'/%3E%3Cpath d='M20 26l-8-8M44 26l8-8' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3Crect x='14' y='24' width='36' height='26' rx='7' fill='none' stroke='%23fff' stroke-width='4'/%3E%3Ccircle cx='25' cy='37' r='3' fill='%23fff'/%3E%3Ccircle cx='39' cy='37' r='3' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --pink:#fb7299;
+    --pink-deep:#e05c84;
+    --blue:#23ade5;
+    --ink:#1f2329;
+    --ink-soft:#4c5560;
+    --line:#e8ecf1;
+    --bg:#f7f9fc;
+    --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:var(--pink-deep);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+
+  /* 顶部导航 */
+  .site-head{
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:20;
+  }
+  .head-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;padding:12px 0;flex-wrap:wrap;
+  }
+  .logo{
+    display:flex;align-items:center;gap:9px;
+    font-size:20px;font-weight:700;color:var(--ink);letter-spacing:.5px;
+  }
+  .logo .dot{
+    width:30px;height:30px;border-radius:9px;background:var(--pink);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:15px;font-weight:700;
+  }
+  .site-nav{display:flex;gap:6px;flex-wrap:wrap;}
+  .site-nav a{
+    color:var(--ink-soft);font-size:14.5px;padding:6px 11px;
+    border-radius:7px;transition:background .18s,color .18s;
+  }
+  .site-nav a:hover{background:#fdeef3;color:var(--pink-deep);text-decoration:none;}
+
+  /* 首屏 */
+  .hero{
+    background:linear-gradient(160deg,#fff3f7 0%,#eef7fd 100%);
+    border-bottom:1px solid var(--line);
+    padding:46px 0 42px;
+  }
+  .hero-inner{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:center;}
+  .hero h1{font-size:32px;line-height:1.35;letter-spacing:.4px;margin-bottom:14px;}
+  .hero h1 em{font-style:normal;color:var(--pink-deep);}
+  .tagline{
+    font-size:16.5px;color:var(--ink-soft);margin-bottom:16px;
+  }
+  .hero-lead{font-size:15px;color:var(--ink-soft);}
+  .hero-side{
+    background:var(--white);border:1px solid var(--line);border-radius:14px;
+    padding:20px 22px;box-shadow:0 8px 24px rgba(35,45,60,.05);
+  }
+  .hero-side h2{font-size:15.5px;margin-bottom:12px;color:var(--ink);}
+  .hero-side ul{list-style:none;}
+  .hero-side li{
+    font-size:14px;color:var(--ink-soft);padding:7px 0 7px 20px;
+    position:relative;border-bottom:1px dashed var(--line);
+  }
+  .hero-side li:last-child{border-bottom:none;}
+  .hero-side li::before{
+    content:"";position:absolute;left:2px;top:16px;
+    width:7px;height:7px;border-radius:50%;background:var(--blue);
+  }
+
+  /* 主体 */
+  main{padding:44px 0 10px;}
+  .block{margin-bottom:46px;}
+  .block-head{margin-bottom:18px;}
+  .block-head h2{
+    font-size:23px;line-height:1.4;position:relative;
+    padding-left:14px;letter-spacing:.3px;
+  }
+  .block-head h2::before{
+    content:"";position:absolute;left:0;top:6px;bottom:6px;
+    width:5px;border-radius:3px;background:var(--pink);
+  }
+  .block-head p{font-size:14.5px;color:var(--ink-soft);margin-top:8px;padding-left:14px;}
+  .block p.body-text{color:var(--ink-soft);margin-bottom:12px;font-size:15.5px;}
+  .block p.body-text:last-child{margin-bottom:0;}
+
+  /* 步骤时间线 */
+  .steps{list-style:none;counter-reset:step;}
+  .steps li{
+    position:relative;background:var(--white);border:1px solid var(--line);
+    border-radius:12px;padding:18px 20px 18px 62px;margin-bottom:14px;
+  }
+  .steps li::before{
+    counter-increment:step;content:counter(step);
+    position:absolute;left:18px;top:18px;
+    width:30px;height:30px;border-radius:9px;
+    background:#fdeef3;color:var(--pink-deep);
+    font-weight:700;font-size:15px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .steps li h3{font-size:16.5px;margin-bottom:6px;}
+  .steps li p{font-size:14.5px;color:var(--ink-soft);}
+
+  /* 客户端对比表 */
+  .table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--white);}
+  table{border-collapse:collapse;width:100%;min-width:620px;font-size:14.5px;}
+  th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#fbfcfe;font-weight:600;color:var(--ink);white-space:nowrap;}
+  td{color:var(--ink-soft);}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:var(--ink);font-weight:600;}
+
+  /* 分类卡片 */
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .tile{
+    background:var(--white);border:1px solid var(--line);border-radius:12px;
+    padding:19px 20px;display:flex;flex-direction:column;gap:8px;
+  }
+  .tile .tag{
+    align-self:flex-start;font-size:12px;letter-spacing:.5px;
+    background:#eef7fd;color:#1478a0;border-radius:20px;padding:2px 10px;
+  }
+  .tile h3{font-size:16.5px;}
+  .tile p{font-size:14px;color:var(--ink-soft);}
+  .tile .state{font-size:12.5px;color:#98a2ad;margin-top:auto;}
+
+  /* 要点列表 */
+  .checklist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;}
+  .checklist li{
+    position:relative;padding-left:24px;font-size:15px;color:var(--ink-soft);
+  }
+  .checklist li::before{
+    content:"✓";position:absolute;left:0;top:0;
+    color:var(--pink-deep);font-weight:700;
+  }
+
+  /* 提示条 */
+  .notice{
+    background:#fff8ec;border:1px solid #f6e3bf;border-radius:12px;
+    padding:18px 22px;font-size:14.8px;color:#7a5a1e;
+  }
+  .notice strong{color:#5e4413;}
+  .notice p+p{margin-top:8px;}
+
+  /* FAQ */
+  .faq-list{display:flex;flex-direction:column;gap:12px;}
+  .faq-item{
+    background:var(--white);border:1px solid var(--line);border-radius:12px;
+    padding:16px 20px;
+  }
+  .faq-item h3{font-size:15.8px;margin-bottom:7px;color:var(--ink);}
+  .faq-item p{font-size:14.6px;color:var(--ink-soft);}
+
+  /* CTA */
+  .cta{
+    background:linear-gradient(135deg,#ffeef4 0%,#e9f6fd 100%);
+    border:1px solid #f6dbe5;border-radius:16px;
+    padding:32px 28px;text-align:center;margin-bottom:46px;
+  }
+  .cta h2{font-size:22px;margin-bottom:10px;}
+  .cta p{font-size:15px;color:var(--ink-soft);max-width:640px;margin:0 auto 18px;}
+  .cta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:10px 24px;border-radius:24px;font-size:15px;
+    font-weight:600;transition:transform .15s,box-shadow .15s;
+  }
+  .btn-primary{background:var(--pink);color:#fff;}
+  .btn-primary:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 8px 18px rgba(251,114,153,.35);}
+  .btn-ghost{background:#fff;color:var(--pink-deep);border:1px solid #f6c6d6;}
+  .btn-ghost:hover{text-decoration:none;background:#fff5f8;}
+
+  /* 页脚 */
+  .site-foot{
+    background:#1f2329;color:#b6bec8;padding:34px 0 26px;font-size:14px;
+  }
+  .foot-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+  .foot-inner .foot-brand{color:#fff;font-weight:700;font-size:16px;margin-bottom:8px;}
+  .foot-inner p{max-width:620px;line-height:1.8;}
+  .foot-links{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;}
+  .foot-links a{color:#cdd5de;font-size:14px;}
+  .foot-links a:hover{color:#fff;text-decoration:none;}
+  .foot-bottom{
+    border-top:1px solid #333940;margin-top:22px;padding-top:14px;
+    font-size:13px;color:#8c96a1;
+  }
+
+  /* 响应式 */
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;}
+    .tiles{grid-template-columns:1fr 1fr;}
+    .checklist{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    body{font-size:15px;}
+    .hero{padding:32px 0 30px;}
+    .hero h1{font-size:24px;}
+    .tagline{font-size:15px;}
+    main{padding:32px 0 4px;}
+    .block{margin-bottom:34px;}
+    .block-head h2{font-size:19.5px;}
+    .tiles{grid-template-columns:1fr;}
+    .steps li{padding:16px 16px 16px 56px;}
+    .steps li::before{left:14px;top:16px;width:28px;height:28px;font-size:14px;}
+    .head-inner{padding:10px 0;}
+    .site-nav a{font-size:13.5px;padding:5px 9px;}
+    .cta{padding:24px 18px;}
+    .cta h2{font-size:19px;}
+    .foot-inner{flex-direction:column;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <div class="logo"><span class="dot">B</span>哔哩客户端资料页</div>
+    <nav class="site-nav" aria-label="页面导航">
+      <a href="#what">下载说明</a>
+      <a href="#steps">安装步骤</a>
+      <a href="#platform">版本对比</a>
+      <a href="#cache">缓存与离线</a>
+      <a href="#safe">安全提示</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <h1>b 站下载：<em>哔哩哔哩客户端获取与安装实用说明</em></h1>
+      <p class="tagline">围绕 b 站下载，梳理手机 App、电脑版与视频缓存的使用思路，帮助不同设备的用户找到清晰、稳妥的获取路径。</p>
+      <p class="hero-lead">很多人在搜索 b 站下载时，其实同时想弄明白三件事：应该下载哪个版本、从哪里获取更稳妥、下载之后如何缓存视频离线观看。本页按这三条线索展开，不承诺任何官方身份，只提供可自查的判断方法和操作顺序。</p>
+    </div>
+    <aside class="hero-side" aria-label="本页能解决的问题">
+      <h2>本页覆盖的内容</h2>
+      <ul>
+        <li>手机端 App 与电脑客户端分别适合谁</li>
+        <li>b 站下载前需要核对的信息</li>
+        <li>安装、登录与更新的一般流程</li>
+        <li>视频缓存与离线观看的注意事项</li>
+        <li>非官方渠道可能带来的风险</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section class="block" id="what">
+    <div class="block-head">
+      <h2>b 站下载到底指什么：先分清客户端与内容缓存</h2>
+      <p>同一个搜索词，可能对应两种完全不同的需求。</p>
+    </div>
+    <p class="body-text">在中文语境里，b 站下载通常有两种含义。第一种是获取哔哩哔哩的客户端程序，也就是手机 App、平板 App 或电脑客户端；第二种是在客户端内部把某个视频缓存到本地，以便没有网络时继续观看。这两件事的操作位置、所需空间和结果都不一样，先分清目的，b 站下载的过程会顺利很多。</p>
+    <p class="body-text">如果是第一次接触，建议先明确设备类型：安卓手机、iPhone、iPad、Windows 电脑或 macOS 电脑，各自可用的客户端形态不同。确认设备后，再决定是安装客户端，还是仅在已有客户端里做视频缓存。把这两步混在一起，容易出现“以为下载了视频，其实只装了一个安装包”的误会。</p>
+    <p class="body-text">本页讨论的 b 站下载，重点放在客户端获取与视频离线缓存这两类常见需求上，同时说明版本差异和使用中的安全注意事项。页面不提供安装包直链，也不冒充任何官方渠道，读者可依据文中给出的核对方法，自行前往可信来源完成操作。</p>
+    <ul class="checklist">
+      <li>先确认是要安装客户端，还是缓存单个视频</li>
+      <li>区分手机端与电脑端的版本差异</li>
+      <li>留意安装包来源是否可核查</li>
+      <li>提前估算缓存视频占用的存储空间</li>
+    </ul>
+  </section>
+
+  <section class="block" id="platform">
+    <div class="block-head">
+      <h2>不同设备的 b 站下载版本对比</h2>
+      <p>按使用场景挑选，比盲目安装多个版本更实用。</p>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>设备类型</th>
+            <th>常见客户端形态</th>
+            <th>适合的使用场景</th>
+            <th>下载时需留意</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>安卓手机</strong></td>
+            <td>安装包形式的应用</td>
+            <td>日常刷视频、弹幕互动、通勤缓存</td>
+            <td>核对应用名称与开发者信息，注意安装权限提示</td>
+          </tr>
+          <tr>
+            <td><strong>iPhone / iPad</strong></td>
+            <td>通过应用商店获取</td>
+            <td>移动观看、账号同步、离线缓存</td>
+            <td>确认登录的商店账号地区与设备匹配</td>
+          </tr>
+          <tr>
+            <td><strong>Windows 电脑</strong></td>
+            <td>桌面客户端</td>
+            <td>大屏观看、多窗口、较长视频</td>
+            <td>安装时留意捆绑选项与安装路径</td>
+          </tr>
+          <tr>
+            <td><strong>macOS 电脑</strong></td>
+            <td>桌面客户端或网页使用</td>
+            <td>轻量观看、办公间隙浏览</td>
+            <td>注意系统版本要求与权限授权</td>
+          </tr>
+          <tr>
+            <td><strong>智能电视 / 投影</strong></td>
+            <td>电视端应用或投屏</td>
+            <td>家庭大屏观看</td>
+            <td>确认电视系统是否支持，或改用投屏方式</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="body-text" style="margin-top:14px;">如果只是偶尔看几个视频，网页端往往够用，不必专门做 b 站下载；如果经常在通勤、出差等无网络环境下观看，客户端加缓存的组合会更省心。选择版本时，优先考虑你使用时间最长的设备，而不是把所有平台的客户端都装一遍。</p>
+  </section>
+
+  <section class="block" id="steps">
+    <div class="block-head">
+      <h2>b 站下载与安装的通用步骤</h2>
+      <p>以下顺序适用于多数设备，具体按钮名称可能随版本调整。</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>确认设备与系统版本</h3>
+        <p>先查看手机或电脑的系统版本，判断是否满足客户端的运行要求。系统过旧时，即使完成 b 站下载，也可能出现无法安装或运行不稳定的情况。</p>
+      </li>
+      <li>
+        <h3>选择可信的获取入口</h3>
+        <p>移动端优先使用系统自带的应用商店，电脑端优先使用站点页面提供的下载入口。避免从陌生短链、论坛附件或来源不明的网盘获取安装包。</p>
+      </li>
+      <li>
+        <h3>核对名称、版本与开发者</h3>
+        <p>安装前查看应用名称、版本号和开发者信息是否一致。名称相似但拼写有差异、图标粗糙、要求过多无关权限的安装包，应直接放弃。</p>
+      </li>
+      <li>
+        <h3>完成安装并首次登录</h3>
+        <p>安装完成后打开客户端，按提示登录账号。若只想浏览不发言，也可先以未登录状态体验，确认功能正常后再决定是否长期使用。</p>
+      </li>
+      <li>
+        <h3>设置缓存位置与清晰度</h3>
+        <p>进入设置中查看缓存目录、默认清晰度与同时缓存数量。手机存储紧张时，可把缓存清晰度调低，或定期清理已看完的内容。</p>
+      </li>
+      <li>
+        <h3>保持适度更新</h3>
+        <p>客户端更新通常带来功能调整与问题修复，但不必每次提示都立即升级。若当前版本稳定，可在方便时再完成 b 站下载的新版本替换。</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="block" id="cache">
+    <div class="block-head">
+      <h2>视频缓存与离线观看：b 站下载之后的常见用法</h2>
+      <p>缓存是客户端里最常被用到的功能之一，也最容易忽视空间管理。</p>
+    </div>
+    <p class="body-text">客户端的缓存功能，本质是把视频数据保存在本地存储中，供无网络时播放。完成 b 站下载并登录后，在视频播放页通常可以找到缓存入口，选择清晰度即可开始。清晰度越高，占用空间越大；一部长视频与几十条短视频的占用差别可能很明显，建议先在设置里看清剩余空间。</p>
+    <p class="body-text">缓存内容一般与账号绑定，换设备或退出登录后可能无法直接播放，这一点在出行前需要特别注意。若计划在飞机、地铁等场景观看，最好提前在稳定网络下完成缓存，并当场试播一小段，确认文件完整可用。</p>
+    <p class="body-text">清理缓存同样是 b 站下载使用中的一环。可在客户端的存储管理里按视频、按时间查看占用，删除已看完的内容；部分设备还支持把缓存目录放到外置存储卡，但读写速度与稳定性会因设备而异，需自行权衡。</p>
+    <ul class="checklist">
+      <li>缓存前确认剩余存储空间是否充足</li>
+      <li>出行前试播一小段验证文件完整</li>
+      <li>清晰度越高，占用空间通常越大</li>
+      <li>换设备或退出账号后缓存可能不可用</li>
+      <li>定期清理已看完的缓存释放空间</li>
+    </ul>
+  </section>
+
+  <section class="block" id="types">
+    <div class="block-head">
+      <h2>围绕 b 站下载的常见需求分类</h2>
+      <p>把需求拆开看，更容易找到对应的操作方式。</p>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <span class="tag">首次安装</span>
+        <h3>新设备安装客户端</h3>
+        <p>刚换手机或新装电脑，需要从零完成 b 站下载与登录，重点在来源核对与系统兼容性。</p>
+        <span class="state">按设备选择对应版本</span>
+      </div>
+      <div class="tile">
+        <span class="tag">离线观看</span>
+        <h3>缓存视频随身看</h3>
+        <p>通勤、旅行时无网络观看，关注缓存清晰度、占用空间和账号绑定关系。</p>
+        <span class="state">提前缓存并试播</span>
+      </div>
+      <div class="tile">
+        <span class="tag">版本更新</span>
+        <h3>旧版本升级替换</h3>
+        <p>当前客户端提示更新或运行异常时，了解覆盖安装与保留数据的注意事项。</p>
+        <span class="state">更新前留意账号与缓存</span>
+      </div>
+      <div class="tile">
+        <span class="tag">电脑使用</span>
+        <h3>桌面端下载与安装</h3>
+        <p>大屏观看与多任务场景下，电脑客户端的安装路径、捆绑选项更值得留意。</p>
+        <span class="state">安装时留意附加选项</span>
+      </div>
+      <div class="tile">
+        <span class="tag">空间管理</span>
+        <h3>缓存占用与清理</h3>
+        <p>手机提示存储不足时，先看缓存目录占用，再决定删除哪些已看完的内容。</p>
+        <span class="state">按时间或体积清理</span>
+      </div>
+      <div class="tile">
+        <span class="tag">风险识别</span>
+        <h3>辨别非正规安装包</h3>
+        <p>面对名称相似、来源不明的 b 站下载链接，学会通过开发者信息与权限提示判断。</p>
+        <span class="state">来源不明则不安装</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="safe">
+    <div class="block-head">
+      <h2>b 站下载的安全与合规提示</h2>
+      <p>下载环节的风险，往往比使用环节更值得警惕。</p>
+    </div>
+    <div class="notice">
+      <p><strong>来源优先：</strong>移动端尽量通过系统应用商店获取，电脑端通过站点页面提供的入口获取，不轻信搜索结果里带有“高速”“破解”“绿色版”等字样的第三方页面。</p>
+      <p><strong>权限审慎：</strong>安装时若出现与视频播放无关的敏感权限请求，应先弄清用途；无法判断时，宁可放弃这次 b 站下载，也不要随意授权。</p>
+      <p><strong>内容合规：</strong>缓存与下载的内容建议仅用于个人观看，不进行二次传播或商业使用，尊重创作者与平台的版权规则。</p>
+    </div>
+    <p class="body-text" style="margin-top:14px;">此外，任何声称可以提供“无限缓存”“去除所有限制”的说法都应保持怀疑。客户端的实际功能以你安装后的界面为准，本页不对具体功能做超出常识的承诺，也不提供任何安装包文件。若在 b 站下载过程中遇到要求付费解锁、索要账号密码的页面，应立即关闭并改用可信入口。</p>
+  </section>
+
+  <section class="block" id="choose">
+    <div class="block-head">
+      <h2>怎样判断自己该用哪种 b 站下载方式</h2>
+      <p>三个问题，帮助你快速定位。</p>
+    </div>
+    <p class="body-text">第一个问题：你主要在什么设备上观看？如果八成时间在手机上，就优先把手机端装好，电脑端可留到需要大屏时再处理。第二个问题：是否经常处于无网络环境？如果是，缓存功能的配置就比客户端数量更重要。第三个问题：存储空间是否紧张？空间有限时，降低缓存清晰度、缩短保留周期，往往比反复做 b 站下载更有效。</p>
+    <p class="body-text">把这三个问题回答清楚，基本就能确定方案：轻度使用者用网页端加偶尔缓存即可；重度使用者建议在主力设备上装好客户端，并养成定期清理缓存的习惯；多设备用户则要注意账号登录状态与缓存不可跨设备播放的限制。</p>
+    <ul class="checklist">
+      <li>主力设备优先，避免多端重复安装</li>
+      <li>无网络场景多，就重点配置缓存</li>
+      <li>空间紧张时先调低缓存清晰度</li>
+      <li>多设备使用时留意缓存不通用</li>
+    </ul>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="block-head">
+      <h2>关于 b 站下载的常见问题</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>b 站下载应该去哪个入口获取安装包？</h3>
+        <p>手机端建议使用设备自带的应用商店搜索应用名称，电脑端使用站点页面提供的下载入口。不要从陌生短链、论坛附件或来源不明的网盘获取安装包，也不要在名称相似、开发者信息模糊的页面完成 b 站下载。</p>
+      </div>
+      <div class="faq-item">
+        <h3>缓存好的视频换手机后还能看吗？</h3>
+        <p>通常不能直接迁移。客户端缓存一般与账号和本机存储绑定，换设备或退出登录后可能无法播放。如果需要在多台设备上离线观看，需要在每台设备上分别登录并重新缓存，这也是 b 站下载使用中比较容易被忽略的一点。</p>
+      </div>
+      <div class="faq-item">
+        <h3>为什么安装时提示系统版本不支持？</h3>
+        <p>客户端对操作系统版本有基本要求，系统过旧时可能无法安装或运行不稳定。可以先查看设备的系统版本，必要时升级系统，或改用网页端观看。若设备已无法升级系统，就不必勉强完成这次 b 站下载。</p>
+      </div>
+      <div class="faq-item">
+        <h3>缓存视频占用空间太大怎么办？</h3>
+        <p>可在客户端设置中降低默认缓存清晰度，或在存储管理里删除已看完的内容。长视频占用通常明显高于短视频，出行前按需缓存即可。定期清理能减少反复做 b 站下载与删除的麻烦。</p>
+      </div>
+      <div class="faq-item">
+        <h3>电脑端安装时出现附加软件选项要如何处理？</h3>
+        <p>安装过程中应逐屏查看选项，取消与客户端本身无关的附加勾选，并确认安装路径。若安装界面来源可疑、选项无法取消，建议中止安装，回到可信入口重新进行 b 站下载。</p>
+      </div>
+      <div class="faq-item">
+        <h3>更新客户端会丢失已缓存的视频吗？</h3>
+        <p>常规覆盖更新一般会保留本地缓存，但不同版本与设备表现可能不同。更新前可先确认重要缓存是否已看完，必要时提前观看或记录内容。若担心异常，可等当前内容看完后再完成 b 站下载的新版本替换。</p>
+      </div>
+      <div class="faq-item">
+        <h3>本页提供安装包下载链接吗？</h3>
+        <p>不提供。本页是围绕 b 站下载的说明性内容，整理版本差异、安装步骤、缓存用法与安全提示，帮助读者自行判断和操作，不托管任何安装文件，也不代表任何官方渠道。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>按设备与场景，理清你的 b 站下载方案</h2>
+    <p>先确认设备类型与是否需要离线观看，再从可信入口完成获取与安装。遇到来源不明、权限异常或要求付费解锁的页面，直接放弃并更换入口。</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="#steps">查看安装步骤</a>
+      <a class="btn btn-ghost" href="#safe">阅读安全提示</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-inner">
+      <div>
+        <div class="foot-brand">哔哩客户端资料页</div>
+        <p>本页围绕 b 站下载整理客户端获取、安装步骤、版本差异、视频缓存与安全注意事项，内容为使用说明与经验性整理，不提供安装包文件，不代表任何官方渠道，具体功能以实际安装后的客户端界面为准。</p>
+      </div>
+      <div class="foot-links">
+        <a href="#what">下载说明</a>
+        <a href="#platform">版本对比</a>
+        <a href="#cache">缓存与离线</a>
+        <a href="#safe">安全提示</a>
+        <a href="#faq">常见问题</a>
+      </div>
+    </div>
+    <div class="foot-bottom">b 站下载相关说明仅供个人参考，请通过可信来源获取客户端，并遵守平台与版权方的使用规则。</div>
+  </div>
+</footer>
+
+</body>
+</html>
