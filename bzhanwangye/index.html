@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>b站网页版-哔哩哔哩网页入口_电脑版使用_网页端功能</title>
+<meta name="description" content="b站网页版使用说明，介绍哔哩哔哩网页端的访问方式、电脑版常见功能、登录与账号设置、视频播放与弹幕、分区浏览、收藏投币等操作要点，并整理网页版与客户端差异、常见问题与使用注意事项，帮助新用户快速上手网页端。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2300a1d6'/%3E%3Crect x='12' y='20' width='40' height='26' rx='6' fill='%23fff'/%3E%3Cpath d='M22 14l6 6M42 14l-6 6' stroke='%23fff' stroke-width='4' stroke-linecap='round' fill='none'/%3E%3Cpath d='M28 30l10 6-10 6z' fill='%2300a1d6'/%3E%3C/svg%3E">
+<style>
+:root{
+  --main:#00a1d6;
+  --deep:#0b1a24;
+  --ink:#1d2b33;
+  --muted:#5d707b;
+  --line:#dfe8ed;
+  --soft:#f2f8fb;
+  --pink:#fb7299;
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei",Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:var(--main);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+
+/* 顶栏 */
+.topbar{
+  background:var(--deep);
+  color:#cfe3ec;
+  font-size:13px;
+  padding:8px 0;
+}
+.topbar .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.topbar span{opacity:.85;}
+
+.sitehead{
+  border-bottom:3px solid var(--main);
+  background:#fff;
+  position:sticky;top:0;z-index:20;
+}
+.sitehead .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap;
+}
+.logo{
+  display:flex;align-items:center;gap:10px;font-size:22px;font-weight:800;color:var(--ink);
+}
+.logo .badge{
+  width:38px;height:38px;border-radius:10px;background:var(--main);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:15px;letter-spacing:-1px;
+}
+nav.mainnav{display:flex;gap:6px;flex-wrap:wrap;}
+nav.mainnav a{
+  color:var(--muted);font-size:15px;padding:6px 12px;border-radius:20px;
+}
+nav.mainnav a:hover{background:var(--soft);color:var(--main);text-decoration:none;}
+
+/* 首屏 */
+.hero{
+  background:linear-gradient(135deg,#eaf7fd 0%,#f7fbfd 60%,#fdf1f5 100%);
+  padding:48px 0 42px;
+  border-bottom:1px solid var(--line);
+}
+.hero .wrap{display:grid;grid-template-columns:1.35fr .9fr;gap:40px;align-items:start;}
+.hero h1{
+  font-size:34px;line-height:1.35;font-weight:800;letter-spacing:-.5px;
+}
+.hero h1 em{font-style:normal;color:var(--main);}
+.tagline{
+  margin-top:14px;font-size:17px;color:var(--muted);max-width:640px;
+}
+.hero-actions{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;padding:10px 22px;border-radius:24px;font-size:15px;font-weight:600;
+}
+.btn.primary{background:var(--main);color:#fff;}
+.btn.primary:hover{background:#0089b8;text-decoration:none;}
+.btn.ghost{border:1px solid var(--main);color:var(--main);}
+.btn.ghost:hover{background:#e9f7fd;text-decoration:none;}
+
+.hero-aside{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;box-shadow:0 6px 20px rgba(0,60,90,.06);
+}
+.hero-aside h2{font-size:16px;margin-bottom:12px;color:var(--ink);}
+.hero-aside ul{list-style:none;font-size:14.5px;color:var(--muted);}
+.hero-aside li{padding:7px 0;border-bottom:1px dashed var(--line);}
+.hero-aside li:last-child{border-bottom:0;}
+.hero-aside b{color:var(--ink);}
+
+/* 通用区块 */
+section.block{padding:46px 0;}
+section.block.alt{background:var(--soft);}
+.block-head{margin-bottom:26px;}
+.block-head h2{
+  font-size:24px;font-weight:800;position:relative;padding-left:14px;line-height:1.3;
+}
+.block-head h2::before{
+  content:"";position:absolute;left:0;top:4px;bottom:4px;width:5px;
+  background:var(--main);border-radius:3px;
+}
+.block-head p{margin-top:8px;color:var(--muted);font-size:15px;}
+
+.intro-text{
+  max-width:900px;color:#33454f;font-size:16px;
+}
+.intro-text p{margin-bottom:14px;}
+
+/* 功能列表 */
+.panel-list{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.panel{
+  border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;background:#fff;
+}
+.panel h3{font-size:18px;margin-bottom:10px;}
+.panel h3 span{color:var(--main);font-size:13px;font-weight:600;margin-left:8px;}
+.panel p{font-size:15px;color:#3b4f59;margin-bottom:10px;}
+.panel ul{margin:8px 0 0 18px;font-size:14.5px;color:var(--muted);}
+.panel li{margin-bottom:5px;}
+
+/* 分区浏览 */
+.districts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.district{
+  border-left:4px solid var(--pink);background:#fff;border:1px solid var(--line);
+  border-left-width:4px;border-radius:8px;padding:16px 18px;
+}
+.district:nth-child(2n){border-left-color:var(--main);}
+.district:nth-child(3n){border-left-color:#ffb400;}
+.district h3{font-size:16.5px;margin-bottom:6px;}
+.district p{font-size:14px;color:var(--muted);}
+
+/* 步骤 */
+.steps{counter-reset:step;display:grid;gap:14px;max-width:900px;}
+.step{
+  display:flex;gap:16px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px 20px;align-items:flex-start;
+}
+.step::before{
+  counter-increment:step;content:counter(step);
+  flex:0 0 36px;height:36px;border-radius:50%;background:var(--main);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;
+}
+.step div h3{font-size:16.5px;margin-bottom:4px;}
+.step div p{font-size:14.5px;color:var(--muted);}
+
+/* 对比表 */
+.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;}
+.cmp th,.cmp td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top;}
+.cmp th{background:#e9f6fc;font-weight:700;}
+.cmp tr:nth-child(even) td{background:#fafdfe;}
+
+/* 提示 */
+.tips{
+  background:#fff8f0;border:1px solid #f7dfc4;border-radius:var(--radius);
+  padding:20px 22px;font-size:15px;color:#5a4524;
+}
+.tips h3{font-size:17px;margin-bottom:10px;color:#8a5a10;}
+.tips ul{margin:8px 0 0 18px;}
+.tips li{margin-bottom:6px;}
+
+/* FAQ */
+.faq{max-width:900px;}
+.faq-item{
+  border:1px solid var(--line);border-radius:var(--radius);
+  margin-bottom:12px;overflow:hidden;background:#fff;
+}
+.faq-item summary{
+  cursor:pointer;padding:16px 20px;font-weight:700;font-size:16px;
+  list-style:none;position:relative;padding-right:46px;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);
+  color:var(--main);font-size:22px;font-weight:400;
+}
+.faq-item[open] summary::after{content:"−";}
+.faq-item .ans{padding:0 20px 18px;color:#3b4f59;font-size:15px;}
+
+/* CTA */
+.cta{
+  background:linear-gradient(120deg,#00a1d6,#0089b8);
+  color:#fff;padding:46px 0;text-align:center;
+}
+.cta h2{font-size:26px;margin-bottom:12px;}
+.cta p{max-width:680px;margin:0 auto 22px;opacity:.95;font-size:15.5px;}
+.cta .btn.ghost{border-color:#fff;color:#fff;}
+.cta .btn.ghost:hover{background:rgba(255,255,255,.15);}
+
+/* 页脚 */
+footer.sitefoot{
+  background:var(--deep);color:#a9c2cf;padding:34px 0 26px;font-size:14px;
+}
+footer.sitefoot .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;}
+footer.sitefoot h3{color:#fff;font-size:15px;margin-bottom:10px;}
+footer.sitefoot ul{list-style:none;}
+footer.sitefoot li{margin-bottom:6px;}
+footer.sitefoot a{color:#a9c2cf;}
+footer .copy{
+  border-top:1px solid rgba(255,255,255,.12);margin-top:24px;padding-top:16px;
+  text-align:center;font-size:13px;color:#7f9aa9;
+}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;}
+  .panel-list{grid-template-columns:1fr;}
+  .districts{grid-template-columns:repeat(2,1fr);}
+  footer.sitefoot .wrap{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:620px){
+  body{font-size:15px;}
+  .hero{padding:32px 0 28px;}
+  .hero h1{font-size:25px;}
+  .hero .tagline{font-size:15.5px;}
+  section.block{padding:32px 0;}
+  .block-head h2{font-size:20px;}
+  .districts{grid-template-columns:1fr;}
+  .step{flex-direction:column;gap:10px;}
+  .cmp{font-size:13.5px;}
+  .cmp th,.cmp td{padding:9px 10px;}
+  footer.sitefoot .wrap{grid-template-columns:1fr;}
+  .logo{font-size:19px;}
+  nav.mainnav a{padding:5px 9px;font-size:14px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>哔哩哔哩网页端信息整理 · 非官方站点</span>
+    <span>电脑浏览器访问 · 使用与功能说明</span>
+  </div>
+</div>
+
+<header class="sitehead">
+  <div class="wrap">
+    <div class="logo"><span class="badge">B站</span>网页版使用参考</div>
+    <nav class="mainnav">
+      <a href="#intro">是什么</a>
+      <a href="#access">访问方式</a>
+      <a href="#feature">网页功能</a>
+      <a href="#district">分区浏览</a>
+      <a href="#account">账号设置</a>
+      <a href="#diff">端间差异</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>b站网页版：在电脑浏览器里使用<em>哔哩哔哩</em>的完整参考</h1>
+      <p class="tagline">从访问入口、登录方式到视频播放、弹幕、分区浏览与账号设置，说明 b站网页版 能在电脑上做什么、怎么用、要注意什么。</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#access">查看访问与登录</a>
+        <a class="btn ghost" href="#feature">了解网页功能</a>
+      </div>
+    </div>
+    <aside class="hero-aside">
+      <h2>快速了解网页版</h2>
+      <ul>
+        <li><b>访问方式：</b>电脑浏览器直接打开官方主站域名</li>
+        <li><b>主要用途：</b>看视频、看直播、刷动态、管理账号</li>
+        <li><b>特色体验：</b>弹幕、投币、收藏、稍后再看、多分区</li>
+        <li><b>账号相关：</b>网页登录、安全设置、大会员业</li>
+        <li><b>适用人群：</b>桌面办公、学习、影音娱乐用户</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="block" id="intro">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>b站网页版是什么，主要解决哪些需求</h2>
+      <p>理解关键词背后的真实搜索意图，比记住某个按钮更重要。</p>
+    </div>
+    <div class="intro-text">
+      <p>b站网页版指的是通过电脑浏览器打开的哔哩哔哩网页端，它是哔哩哔哩在桌面端提供的一套完整入口。相比手机客户端，网页版最大的优势是不需要安装额外软件，打开浏览器就能进入主站，浏览推荐视频、搜索内容、查看分区、观看直播、管理账号与创作内容。很多用户在搜索引擎里输入“b站网页版”，往往是想确认网页端的正确访问方式、电脑上能不能正常登录、网页端有哪些功能，以及它和客户端有什么差别。</p>
+      <p>从使用场景看，b站网页版更适合长时间停留的桌面环境：一边工作一边看视频、在电脑上整理收藏、查看课程与知识区内容、观看直播和多路视频、处理弹幕和评论、管理自己的投稿和账号安全设置。网页端的大屏布局能把视频、推荐、评论和分集信息同时铺开，操作路径更直观。对于不希望在手机上占用存储、或者需要在电脑上完成账号操作的用户，网页版是很自然的补充。</p>
+      <p>需要说明的是，本页是一个围绕 b站网页版 整理的使用参考页，不是哔哩哔哩官方网站，也不提供官方登录、下载或客服服务。页面内容以帮助访问者理解网页端的功能、操作方式、常见差异和注意事项为目的。真正访问 b站网页版 时，应当通过浏览器地址栏输入官方主站域名，确认页面域名正确后再进行登录，避免在来源不明的页面输入账号密码。</p>
+      <p>下面的内容按“怎么进入—网页端能做什么—账号怎么设置—和客户端有什么不同—常见问题”的顺序展开。阅读时可以先看访问与登录部分，再根据自己关心的功能跳到对应栏目；如果你只是想确认 b站网页版 是否存在、能否在电脑上用，前面两节已经能给出答案。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="access">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>如何进入 b站网页版 并完成登录</h2>
+      <p>网页端入口本身并不复杂，关键在于认准域名和登录方式。</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div>
+          <h3>打开电脑浏览器</h3>
+          <p>使用常见的桌面浏览器即可访问 b站网页版，建议保持浏览器为较新版本，以便正常播放视频和使用弹幕、评论等功能。窗口宽度较大时页面会展示更完整的推荐和导航。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h3>在地址栏输入官方主站域名</h3>
+          <p>哔哩哔哩的官方主站域名是 bilibili.com，在地址栏输入后回车即可进入网页版首页。不要在来历不明的搜索广告或山寨页面里输入账号，以免账号信息泄露。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h3>选择登录方式</h3>
+          <p>b站网页版通常提供账号密码登录、手机号验证码登录以及第三方账号登录等入口。按页面提示选择适合自己的方式，登录后即可使用收藏、投币、关注、稍后再看等需要账号的功能。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h3>完成安全验证与设备确认</h3>
+          <p>首次在新设备登录时，页面可能要求完成验证码或短信验证。这是账号安全机制的一部分，按提示操作即可。若在公共电脑上登录，离开前建议退出账号或清除登录状态。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h3>根据需要调整网页端设置</h3>
+          <p>进入 b站网页版 后，可以在设置里调整清晰度偏好、弹幕显示、播放器行为、消息提醒等选项，让桌面端的使用体验更符合自己的习惯。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="feature">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>b站网页版 的主要功能栏目</h2>
+      <p>网页端不是简单的视频列表，而是围绕观看、互动和账号管理组织起来的一套功能。</p>
+    </div>
+    <div class="panel-list">
+      <article class="panel">
+        <h3>视频播放与弹幕<span>核心体验</span></h3>
+        <p>b站网页版 的播放器支持清晰度切换、倍速播放、画中画、全屏和网页全屏等常见操作，弹幕可以在播放器内开关、调节透明度和显示区域。</p>
+        <ul>
+          <li>分P与合集视频可在播放器下方切换</li>
+          <li>弹幕设置支持屏蔽词与显示密度调整</li>
+          <li>网页全屏适合边看边浏览评论</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h3>首页推荐与搜索<span>内容发现</span></h3>
+        <p>进入 b站网页版 后，首页会按推荐逻辑展示视频卡片，顶部搜索框可以按关键词查找视频、番剧、直播、用户和专栏内容，并支持按排序和分区筛选。</p>
+        <ul>
+          <li>搜索支持按综合、播放量、最新等排序</li>
+          <li>推荐流可不断下拉加载更多内容</li>
+          <li>热门榜单和排行榜可辅助发现内容</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h3>分区与频道浏览<span>内容分类</span></h3>
+        <p>b站网页版 把内容划分为动画、番剧、国创、音乐、舞蹈、游戏、知识、科技、生活、美食、时尚、影视、鬼畜、娱乐等多个分区，每个分区下还有更细的频道与标签。</p>
+        <ul>
+          <li>分区页可按最新、最多播放等维度浏览</li>
+          <li>频道和标签帮助定位细分题材</li>
+          <li>排行榜适合快速了解热门内容</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h3>直播与动态<span>实时内容</span></h3>
+        <p>网页端同样可以进入直播区观看各类直播，并在动态页查看关注的UP主发布的内容。直播页面支持清晰度切换、弹幕互动和礼物相关入口。</p>
+        <ul>
+          <li>直播分区按游戏、娱乐、知识等分类</li>
+          <li>动态页汇总关注UP主的更新</li>
+          <li>直播间可发送弹幕参与互动</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h3>收藏、稍后再看与历史<span>内容管理</span></h3>
+        <p>登录后可以在 b站网页版 中收藏视频、加入稍后再看、查看观看历史，并按收藏夹整理内容。这些功能对在电脑上长期整理学习资料和影音清单很有帮助。</p>
+        <ul>
+          <li>收藏夹支持创建多个分类</li>
+          <li>稍后再看适合临时保存待看内容</li>
+          <li>历史记录可按时间回溯观看内容</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h3>创作中心与账号管理<span>账号操作</span></h3>
+        <p>通过 b站网页版 的创作中心入口，UP主可以查看稿件数据、上传视频、管理专栏和动态；账号设置中可修改资料、绑定手机、查看登录设备和安全选项。</p>
+        <ul>
+          <li>稿件管理支持查看审核与播放数据</li>
+          <li>账号安全可查看登录设备记录</li>
+          <li>消息中心集中处理评论与私信提醒</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="district">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>b站网页版 的分区该从哪里逛起</h2>
+      <p>不同分区的浏览节奏和内容形态不同，按兴趣选择能少走弯路。</p>
+    </div>
+    <div class="districts">
+      <div class="district">
+        <h3>动画与番剧</h3>
+        <p>适合追番用户，网页版可以在番剧页查看剧集列表、追番状态和更新信息，播放器内可切换分集。</p>
+      </div>
+      <div class="district">
+        <h3>知识区</h3>
+        <p>课程、科普、技能类内容集中，网页端大屏更适合边看边做笔记，配合稍后再看整理学习清单。</p>
+      </div>
+      <div class="district">
+        <h3>游戏区</h3>
+        <p>包含实况、攻略、赛事解说等内容，直播与视频入口在同一分区内，方便切换观看。</p>
+      </div>
+      <div class="district">
+        <h3>科技与数码</h3>
+        <p>评测、教程、行业内容较多，网页端可以边看边查资料，适合需要多窗口操作的用户。</p>
+      </div>
+      <div class="district">
+        <h3>音乐与舞蹈</h3>
+        <p>以作品欣赏和翻唱翻跳为主，弹幕互动活跃，网页播放器支持循环与倍速。</p>
+      </div>
+      <div class="district">
+        <h3>生活与美食</h3>
+        <p>日常记录、探店、烹饪教程等内容，适合碎片时间浏览，也可通过标签找同类题材。</p>
+      </div>
+      <div class="district">
+        <h3>影视与娱乐</h3>
+        <p>包含影视解说、综艺片段和娱乐内容，页面会提示版权与播放范围，以实际页面显示为准。</p>
+      </div>
+      <div class="district">
+        <h3>鬼畜与搞笑</h3>
+        <p>二创和剪辑类内容集中，弹幕文化明显，网页端可调节弹幕密度获得不同观看体验。</p>
+      </div>
+      <div class="district">
+        <h3>直播分区</h3>
+        <p>按游戏、娱乐、知识、虚拟主播等分类，网页端可直接进入直播间并参与弹幕互动。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="account">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>b站网页版 的账号设置与安全习惯</h2>
+      <p>网页端登录方便，也意味着账号安全需要多留一份心。</p>
+    </div>
+    <div class="intro-text">
+      <p>在 b站网页版 登录之后，账号设置页集中了个人资料、头像、昵称、绑定手机、第三方账号关联、登录设备管理、隐私设置等入口。对于经常在电脑上使用网页版的用户，建议先花几分钟检查这些设置，尤其是登录设备列表，发现不认识的设备及时处理。网页端的账号操作比手机端更容易被忽略，因为浏览器的自动填充和记住密码功能会让人省去输入步骤，也容易让公共电脑保留登录状态。</p>
+      <p>安全习惯方面，不要在来源不明的页面输入 b站网页版 的账号密码，不要把验证码告诉他人，不要安装声称能“增强网页版功能”的未知插件。浏览器插件可以改善体验，但也可能读取页面内容，安装前应确认来源与权限。如果需要在他人电脑上临时使用 b站网页版，使用完记得退出登录，并在隐私设置中检查是否保留了自动登录。</p>
+      <p>账号管理还包括消息通知、隐私可见范围、弹幕与评论设置等。网页端的设置入口通常在右上角头像菜单中，部分功能与手机客户端同步，调整后会同时生效。若发现设置项与客户端不一致，以页面实际展示为准，不必强行对照旧版教程操作。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="diff">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>b站网页版 与手机客户端的差异</h2>
+      <p>两者账号互通，但使用体验和功能侧重并不完全相同。</p>
+    </div>
+    <table class="cmp">
+      <thead>
+        <tr><th>对比维度</th><th>b站网页版</th><th>手机客户端</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>安装需求</td>
+          <td>无需安装，浏览器打开即可使用</td>
+          <td>需要下载安装应用</td>
+        </tr>
+        <tr>
+          <td>屏幕与布局</td>
+          <td>大屏展示，推荐、评论、分集信息可同屏</td>
+          <td>竖屏为主，信息更集中</td>
+        </tr>
+        <tr>
+          <td>视频播放</td>
+          <td>支持网页全屏、画中画、倍速与清晰度切换</td>
+          <td>支持手势操作、后台播放等移动端特性</td>
+        </tr>
+        <tr>
+          <td>弹幕体验</td>
+          <td>可调透明度、显示区域与屏蔽词</td>
+          <td>弹幕设置项与网页端略有差异</td>
+        </tr>
+        <tr>
+          <td>内容管理</td>
+          <td>收藏夹、稍后再看、历史记录适合桌面整理</td>
+          <td>同样支持，操作更偏向触屏</td>
+        </tr>
+        <tr>
+          <td>创作与投稿</td>
+          <td>创作中心功能较完整，适合上传与数据查看</td>
+          <td>提供移动端投稿入口，功能侧重不同</td>
+        </tr>
+        <tr>
+          <td>账号安全</td>
+          <td>公共电脑使用需注意退出登录</td>
+          <td>依赖设备本身的锁屏与账号保护</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>使用 b站网页版 时的注意事项</h2>
+      <p>网页端体验取决于浏览器环境，几个细节值得提前了解。</p>
+    </div>
+    <div class="tips">
+      <h3>建议留意的几点</h3>
+      <ul>
+        <li>播放卡顿时优先检查网络与浏览器版本，再考虑切换清晰度。</li>
+        <li>弹幕过多影响观看时，可关闭弹幕或调低显示密度。</li>
+        <li>在公共电脑登录 b站网页版 后，离开前务必退出账号。</li>
+        <li>不要轻信声称能解锁会员或提供破解功能的第三方页面。</li>
+        <li>网页端部分内容受版权与地区限制，能否播放以页面提示为准。</li>
+        <li>浏览器插件应选择可信来源，避免授予不必要的页面读取权限。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="faq">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>b站网页版 常见问题</h2>
+      <p>整理访问者最常提出的疑问，帮助快速判断。</p>
+    </div>
+    <div class="faq">
+      <details class="faq-item" open>
+        <summary>b站网页版需要下载安装吗？</summary>
+        <div class="ans">不需要。b站网页版通过电脑浏览器访问官方主站域名即可使用，不涉及客户端安装。手机客户端是另一种使用方式，两者账号互通，但界面和部分功能侧重不同。若你只是临时在电脑上观看内容，网页版通常是最直接的选择。</div>
+      </details>
+      <details class="faq-item">
+        <summary>b站网页版和手机客户端的功能一样吗？</summary>
+        <div class="ans">账号体系互通，收藏、关注、历史等数据通常同步，但功能呈现有差异。网页版在大屏布局、播放器网页全屏、创作中心数据查看等方面更适合桌面操作；手机客户端则在触屏手势、移动场景和部分移动端专属功能上更方便。具体差异以页面实际展示为准。</div>
+      </details>
+      <details class="faq-item">
+        <summary>在 b站网页版 登录安全吗？</summary>
+        <div class="ans">通过官方主站域名登录本身是常规操作，关键在于确认域名正确、网络环境可信。不要在陌生链接或山寨页面输入账号密码，不要把验证码告知他人。在公共电脑使用后应退出登录，并定期查看登录设备记录。</div>
+      </details>
+      <details class="faq-item">
+        <summary>网页版看视频卡顿怎么办？</summary>
+        <div class="ans">可以先检查网络连接是否稳定，尝试降低清晰度或关闭其他占用带宽的程序；也可以更新浏览器版本、清理缓存后重试。若只有个别视频卡顿，可能与视频源或网络线路有关，换一个时间段再试往往更有效。</div>
+      </details>
+      <details class="faq-item">
+        <summary>b站网页版可以上传视频吗？</summary>
+        <div class="ans">登录后进入创作中心即可找到投稿入口，网页端支持上传视频并填写标题、分区、标签等信息。上传前建议阅读页面提示的格式与规范要求，具体可上传的内容类型和限制以创作中心页面显示为准。</div>
+      </details>
+      <details class="faq-item">
+        <summary>为什么有些视频在网页版无法播放？</summary>
+        <div class="ans">常见原因包括版权限制、地区限制、视频被删除或设为私密，以及浏览器兼容问题。页面通常会给出相应提示，按提示判断即可。若提示为版权或地区原因，更换设备一般也无法解决。</div>
+      </details>
+      <details class="faq-item">
+        <summary>本页是哔哩哔哩官方网站吗？</summary>
+        <div class="ans">不是。本页是围绕 b站网页版 整理的使用参考内容，用于说明访问方式、功能与注意事项，不提供官方登录、下载或客服服务。访问哔哩哔哩请以官方主站域名为准，涉及账号和付费操作时尤其要确认页面来源。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>先确认入口，再开始使用 b站网页版</h2>
+    <p>网页端的价值在于打开浏览器就能观看和管理内容。记住官方域名、养成安全登录习惯，再按自己的兴趣选择分区，就能较快上手 b站网页版。</p>
+    <a class="btn ghost" href="#access">回到访问与登录说明</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="sitefoot">
+  <div class="wrap">
+    <div>
+      <h3>关于本页</h3>
+      <p>b站网页版 使用参考页，整理电脑浏览器访问哔哩哔哩网页端的方式、功能分区、账号设置与常见问题，内容以帮助访问者理解和使用为目的。</p>
+    </div>
+    <div>
+      <h3>页面导航</h3>
+      <ul>
+        <li><a href="#intro">网页版是什么</a></li>
+        <li><a href="#access">访问与登录</a></li>
+        <li><a href="#feature">主要功能</a></li>
+        <li><a href="#district">分区浏览</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>使用提醒</h3>
+      <ul>
+        <li>认准官方主站域名再登录</li>
+        <li>公共电脑使用后退出账号</li>
+        <li>不安装来源不明的插件</li>
+        <li>播放限制以页面提示为准</li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">本页为非官方信息整理，与哔哩哔哩官方无隶属关系。b站网页版 的实际功能与界面以官方页面为准。</div>
+</footer>
+
+</body>
+</html>
