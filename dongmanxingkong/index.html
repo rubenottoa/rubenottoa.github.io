@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>动漫星空官网-动漫星空_动漫资源导航_动漫社区_动画资讯</title>
+<meta name="description" content="动漫星空官网是面向动漫爱好者的综合信息与交流平台，提供动漫星空相关的动画资讯、动漫资源导航、番剧分类筛选、动漫社区话题与入门参考，帮助访问者了解动漫星空官网的定位、能获取哪些信息以及如何参与交流。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1a3a'/%3E%3Cpath d='M32 10l5.2 13.6L51 26l-11 9.8 3.4 14.2L32 42l-11.4 8 3.4-14.2L13 26l13.8-2.4z' fill='%23ffd166'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%231a1a3a'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#141428;
+  --ink-soft:#3c3c58;
+  --paper:#f6f4ef;
+  --panel:#ffffff;
+  --violet:#5b3fd6;
+  --violet-deep:#3a2599;
+  --gold:#e8b93a;
+  --line:#dcd6ca;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:var(--violet-deep);text-decoration:none;}
+a:hover{text-decoration:underline;}
+img,svg{max-width:100%;display:block;}
+
+/* 顶栏 */
+.site-head{
+  background:var(--ink);
+  color:#f2eee6;
+  position:sticky;
+  top:0;
+  z-index:50;
+  box-shadow:0 2px 10px rgba(10,10,30,.35);
+}
+.head-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.brand-mark{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  font-size:1.15rem;
+  letter-spacing:.5px;
+  color:#fff;
+}
+.brand-mark .dot{
+  width:30px;height:30px;border-radius:8px;
+  background:linear-gradient(135deg,var(--gold),#f08a3c);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink);font-size:1rem;font-weight:900;
+}
+.site-nav{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-left:auto;
+}
+.site-nav a{
+  color:#d9d3e8;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:.92rem;
+  transition:background .2s,color .2s;
+}
+.site-nav a:hover{
+  background:var(--violet);
+  color:#fff;
+  text-decoration:none;
+}
+
+/* 首屏 */
+.star-hero{
+  background:
+    radial-gradient(circle at 12% 20%,rgba(232,185,58,.18),transparent 42%),
+    radial-gradient(circle at 86% 8%,rgba(91,63,214,.45),transparent 46%),
+    linear-gradient(160deg,#1c1a3d 0%,#241f52 52%,#171232 100%);
+  color:#f4f1ea;
+  padding:56px 20px 60px;
+  position:relative;
+  overflow:hidden;
+}
+.star-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(1px 1px at 8% 30%,#fff,transparent),
+    radial-gradient(1px 1px at 22% 68%,#ffe9a8,transparent),
+    radial-gradient(1.5px 1.5px at 40% 18%,#fff,transparent),
+    radial-gradient(1px 1px at 58% 52%,#c9b8ff,transparent),
+    radial-gradient(1px 1px at 74% 26%,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 88% 64%,#ffe9a8,transparent),
+    radial-gradient(1px 1px at 94% 14%,#fff,transparent);
+  opacity:.7;
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1180px;
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:44px;
+  align-items:center;
+}
+.hero-inner h1{
+  font-size:clamp(1.7rem,3.4vw,2.6rem);
+  line-height:1.3;
+  letter-spacing:.5px;
+  margin-bottom:16px;
+}
+.hero-inner h1 em{
+  font-style:normal;
+  color:var(--gold);
+}
+.hero-tag{
+  font-size:1.02rem;
+  color:#cfc7ea;
+  margin-bottom:22px;
+  max-width:520px;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-main,.btn-ghost{
+  display:inline-block;
+  padding:11px 24px;
+  border-radius:999px;
+  font-size:.95rem;
+  font-weight:600;
+  transition:transform .18s,background .18s;
+}
+.btn-main{
+  background:var(--gold);
+  color:#241f52;
+}
+.btn-main:hover{background:#f5c94f;transform:translateY(-2px);text-decoration:none;}
+.btn-ghost{
+  border:1px solid rgba(255,255,255,.45);
+  color:#eee9ff;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.1);text-decoration:none;}
+.hero-side{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:18px;
+  padding:22px 24px;
+  backdrop-filter:blur(3px);
+}
+.hero-side h2{
+  font-size:1rem;
+  color:#fff;
+  margin-bottom:12px;
+  letter-spacing:.5px;
+}
+.hero-side ul{list-style:none;}
+.hero-side li{
+  font-size:.9rem;
+  color:#d7d0ee;
+  padding:7px 0 7px 18px;
+  position:relative;
+  border-bottom:1px dashed rgba(255,255,255,.12);
+}
+.hero-side li:last-child{border-bottom:none;}
+.hero-side li::before{
+  content:"✦";
+  position:absolute;
+  left:0;
+  color:var(--gold);
+  font-size:.8rem;
+}
+
+/* 通用容器 */
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 20px;
+}
+.section{
+  padding:56px 0;
+}
+.section.alt{
+  background:linear-gradient(180deg,#f1eee6,#faf8f3);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.sec-head{
+  max-width:760px;
+  margin-bottom:30px;
+}
+.sec-head .eyebrow{
+  font-size:.78rem;
+  letter-spacing:3px;
+  color:var(--violet);
+  font-weight:700;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.sec-head h2{
+  font-size:clamp(1.35rem,2.4vw,1.85rem);
+  line-height:1.35;
+  color:var(--ink);
+}
+.sec-head p{
+  margin-top:10px;
+  color:var(--ink-soft);
+  font-size:.96rem;
+}
+
+/* 定位说明栏 */
+.intro-band{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-left:6px solid var(--violet);
+  border-radius:var(--radius);
+  padding:26px 28px;
+  margin-top:-34px;
+  position:relative;
+  z-index:5;
+  box-shadow:0 14px 34px rgba(30,24,70,.1);
+}
+.intro-band p{
+  color:var(--ink-soft);
+  font-size:.98rem;
+}
+.intro-band p + p{margin-top:12px;}
+
+/* 功能栏目：六宫格 */
+.func-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.func-item{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px 22px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:transform .2s,box-shadow .2s;
+}
+.func-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 26px rgba(40,30,90,.12);
+}
+.func-item .tag{
+  align-self:flex-start;
+  font-size:.72rem;
+  letter-spacing:1px;
+  padding:2px 10px;
+  border-radius:999px;
+  background:#efeafd;
+  color:var(--violet-deep);
+  font-weight:700;
+}
+.func-item h3{
+  font-size:1.05rem;
+  color:var(--ink);
+}
+.func-item p{
+  font-size:.9rem;
+  color:var(--ink-soft);
+}
+
+/* 分类筛选 */
+.filter-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+}
+.filter-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px 26px;
+}
+.filter-card h3{
+  font-size:1.08rem;
+  margin-bottom:12px;
+  color:var(--violet-deep);
+}
+.filter-card p{
+  font-size:.93rem;
+  color:var(--ink-soft);
+  margin-bottom:10px;
+}
+.chip-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:14px;
+}
+.chip{
+  font-size:.82rem;
+  padding:5px 13px;
+  border-radius:999px;
+  background:#f1eefb;
+  color:var(--violet-deep);
+  border:1px solid #ded5f7;
+}
+.chip.gold{
+  background:#fdf3d8;
+  color:#8a6206;
+  border-color:#f0dfa8;
+}
+
+/* 资源导航列表 */
+.nav-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+.nav-row{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:18px 20px;
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+.nav-row .idx{
+  font-size:1.4rem;
+  font-weight:800;
+  color:#cfc4f0;
+  line-height:1;
+  min-width:34px;
+}
+.nav-row h3{
+  font-size:1rem;
+  margin-bottom:5px;
+}
+.nav-row p{
+  font-size:.88rem;
+  color:var(--ink-soft);
+}
+.nav-row .state{
+  display:inline-block;
+  font-size:.72rem;
+  margin-top:8px;
+  padding:1px 9px;
+  border-radius:999px;
+  background:#f4f1ea;
+  color:#7a7360;
+  border:1px dashed #d6cfbd;
+}
+
+/* 使用步骤 */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  counter-reset:step;
+}
+.step{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px 20px;
+  position:relative;
+}
+.step::before{
+  counter-increment:step;
+  content:counter(step,decimal-leading-zero);
+  font-size:1.9rem;
+  font-weight:900;
+  color:#e9e2f8;
+  display:block;
+  margin-bottom:8px;
+  line-height:1;
+}
+.step h3{
+  font-size:1rem;
+  margin-bottom:8px;
+}
+.step p{
+  font-size:.88rem;
+  color:var(--ink-soft);
+}
+
+/* 社区 */
+.community{
+  display:grid;
+  grid-template-columns:1.25fr 1fr;
+  gap:26px;
+}
+.community-main{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px 28px;
+}
+.community-main h3{
+  font-size:1.15rem;
+  margin-bottom:12px;
+}
+.community-main p{
+  font-size:.94rem;
+  color:var(--ink-soft);
+  margin-bottom:12px;
+}
+.rule-box{
+  background:#1c1a3d;
+  color:#e7e1f6;
+  border-radius:var(--radius);
+  padding:26px 28px;
+}
+.rule-box h3{
+  font-size:1.1rem;
+  color:var(--gold);
+  margin-bottom:12px;
+}
+.rule-box ul{
+  list-style:none;
+}
+.rule-box li{
+  font-size:.9rem;
+  padding:6px 0 6px 20px;
+  position:relative;
+  color:#cfc7ea;
+}
+.rule-box li::before{
+  content:"·";
+  position:absolute;
+  left:4px;
+  color:var(--gold);
+  font-weight:900;
+}
+
+/* 安全提示 */
+.safety-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.safety{
+  background:#fffdf7;
+  border:1px solid #ecdfbb;
+  border-radius:var(--radius);
+  padding:22px;
+}
+.safety h3{
+  font-size:1rem;
+  color:#8a6206;
+  margin-bottom:8px;
+}
+.safety p{
+  font-size:.9rem;
+  color:#5d5340;
+}
+
+/* FAQ */
+.faq-wrap{
+  max-width:860px;
+  margin:0 auto;
+}
+.faq-item{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:12px;
+  margin-bottom:12px;
+  overflow:hidden;
+}
+.faq-item summary{
+  cursor:pointer;
+  padding:16px 22px;
+  font-weight:600;
+  font-size:.98rem;
+  list-style:none;
+  position:relative;
+  padding-right:46px;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:"+";
+  position:absolute;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:1.3rem;
+  color:var(--violet);
+  font-weight:400;
+}
+.faq-item[open] summary::after{content:"–";}
+.faq-item .ans{
+  padding:0 22px 18px;
+  font-size:.92rem;
+  color:var(--ink-soft);
+  border-top:1px dashed var(--line);
+  padding-top:14px;
+}
+
+/* CTA */
+.cta-band{
+  background:linear-gradient(120deg,#2a2358,#4a2f9e 70%,#6b3fd0);
+  color:#fff;
+  border-radius:18px;
+  padding:44px 36px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:26px;
+  flex-wrap:wrap;
+}
+.cta-band h2{
+  font-size:1.5rem;
+  margin-bottom:8px;
+}
+.cta-band p{
+  font-size:.95rem;
+  color:#ddd3ff;
+  max-width:560px;
+}
+
+/* 页脚 */
+.site-foot{
+  background:#141428;
+  color:#b9b2d4;
+  padding:40px 20px 28px;
+  margin-top:56px;
+}
+.foot-inner{
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  gap:26px;
+  flex-wrap:wrap;
+  font-size:.88rem;
+}
+.foot-inner .foot-brand{
+  font-weight:700;
+  color:#fff;
+  font-size:1rem;
+  margin-bottom:8px;
+}
+.foot-col{max-width:420px;}
+.foot-col p{line-height:1.8;}
+
+/* 响应式 */
+@media (max-width:960px){
+  .hero-inner{grid-template-columns:1fr;}
+  .func-grid{grid-template-columns:repeat(2,1fr);}
+  .steps{grid-template-columns:repeat(2,1fr);}
+  .community{grid-template-columns:1fr;}
+  .safety-grid{grid-template-columns:1fr 1fr;}
+  .filter-layout{grid-template-columns:1fr;}
+}
+@media (max-width:640px){
+  body{font-size:15px;}
+  .head-inner{padding:10px 16px;gap:10px;}
+  .site-nav{margin-left:0;width:100%;justify-content:flex-start;}
+  .site-nav a{font-size:.85rem;padding:5px 10px;}
+  .star-hero{padding:40px 16px 46px;}
+  .hero-actions{flex-direction:column;align-items:flex-start;}
+  .btn-main,.btn-ghost{width:100%;text-align:center;}
+  .intro-band{margin-top:-24px;padding:20px 18px;}
+  .section{padding:40px 0;}
+  .func-grid{grid-template-columns:1fr;}
+  .nav-list{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .safety-grid{grid-template-columns:1fr;}
+  .cta-band{padding:30px 22px;border-radius:14px;}
+  .cta-band h2{font-size:1.25rem;}
+  .foot-inner{flex-direction:column;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="head-inner">
+    <div class="brand-mark"><span class="dot">星</span>动漫星空官网</div>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="#position">站点定位</a>
+      <a href="#function">内容栏目</a>
+      <a href="#filter">分类筛选</a>
+      <a href="#navmap">资源导航</a>
+      <a href="#guide">使用步骤</a>
+      <a href="#community">社区交流</a>
+      <a href="#safety">安全提示</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="star-hero">
+    <div class="hero-inner">
+      <div>
+        <h1>动漫星空官网：动漫星空爱好者的<em>信息与交流入口</em></h1>
+        <p class="hero-tag">梳理动漫星空官网的站点定位、栏目构成、番剧筛选方式与社区参与规则，让第一次访问的人也能快速找到想看的内容。</p>
+        <div class="hero-actions">
+          <a class="btn-main" href="#function">了解内容栏目</a>
+          <a class="btn-ghost" href="#faq">查看常见问题</a>
+        </div>
+      </div>
+      <aside class="hero-side" aria-label="快速要点">
+        <h2>访问前先知道</h2>
+        <ul>
+          <li>动漫星空官网以动画资讯、番剧分类与资源导航为核心</li>
+          <li>分类筛选帮助减少无效浏览，按题材与进度找片</li>
+          <li>社区话题围绕作品讨论、观看心得与追番节奏展开</li>
+          <li>站内链接与外部链接会分别标注，避免误点</li>
+          <li>不承诺任何作品可在线观看，以页面实际说明为准</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="intro-band" id="position">
+      <p>动漫星空官网是围绕动漫兴趣组织起来的综合型页面集合：它把动画资讯、番剧分类、资源导航、社区讨论和入门参考放在同一套结构里，让访问者不必在零散的信息中反复跳转。对搜索“动漫星空官网”的人来说，真正想确认的往往是三件事——这个站点是什么、能获得哪些信息、怎样高效使用它，本页就按这三个方向展开。</p>
+      <p>动漫星空官网的定位是信息整理与交流引导，而不是作品播放器。页面会说明各类内容的位置、筛选维度、参与方式与需要注意的边界，帮助动漫星空官网的访问者形成清晰预期，也方便老用户把注意力放在自己感兴趣的作品与话题上。</p>
+    </div>
+  </div>
+
+  <!-- 内容栏目 -->
+  <section class="section" id="function">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Content</div>
+        <h2>动漫星空官网的六类内容栏目</h2>
+        <p>动漫星空官网的内容并非平均铺开，而是围绕“找作品、看资讯、读资料、参与讨论”这条主线组织。下列栏目说明了每类信息解决什么问题，访问时可以先从最贴近需求的一类进入。</p>
+      </div>
+      <div class="func-grid">
+        <article class="func-item">
+          <span class="tag">资讯</span>
+          <h3>动画资讯与节目动向</h3>
+          <p>汇总新作公开信息、制作阵容变化与播出安排类内容，帮助读者了解一部动画的基本背景。资讯类条目以转述公开信息为主，不替代官方公告。</p>
+        </article>
+        <article class="func-item">
+          <span class="tag">分类</span>
+          <h3>番剧题材与进度分类</h3>
+          <p>按题材、年份、集数规模与连载状态划分，适合带着明确偏好来找片的人。分类页只做归类和简介，是否可观看以具体页面说明为准。</p>
+        </article>
+        <article class="func-item">
+          <span class="tag">资料</span>
+          <h3>作品资料与观看顺序</h3>
+          <p>整理系列作品的季数关系、剧场版与衍生作的位置，解决“从哪一部开始看”的困惑。资料类内容偏重结构化说明，便于快速比对。</p>
+        </article>
+        <article class="func-item">
+          <span class="tag">导航</span>
+          <h3>动漫资源导航入口</h3>
+          <p>把常用入口集中呈现，包括分类索引、专题页与外部参考来源。导航会区分站内路径与外部链接，减少误触和无效跳转。</p>
+        </article>
+        <article class="func-item">
+          <span class="tag">社区</span>
+          <h3>话题讨论与观后感</h3>
+          <p>围绕具体作品展开交流，讨论剧情走向、角色塑造与改编差异。发帖前建议先看清版块主题，避免把无关联内容混在一起。</p>
+        </article>
+        <article class="func-item">
+          <span class="tag">入门</span>
+          <h3>新番选择与入门参考</h3>
+          <p>面向刚接触动漫星空官网的访问者，说明如何用题材、时长和口碑线索做初步筛选，降低第一次追番的选择成本。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分类筛选 -->
+  <section class="section alt" id="filter">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Filter</div>
+        <h2>用分类维度缩小范围，而不是一页页翻</h2>
+        <p>动漫星空官网把筛选拆成几个可组合的维度，访问者可以先确定一个主维度，再用其他维度微调，比单纯依赖推荐列表更容易找到符合口味的作品。</p>
+      </div>
+      <div class="filter-layout">
+        <div class="filter-card">
+          <h3>按题材与受众定位</h3>
+          <p>题材是最直观的入口：热血、日常、悬疑、科幻、恋爱、运动、奇幻等方向对应不同的叙事节奏。建议先锁定一到两个题材，避免一次勾选过多导致结果失去区分度。</p>
+          <p>受众定位则用于区分少年向、青年向与合家欢类型，同一题材在不同受众定位下，人物关系与表达尺度差异明显，参考时值得留意。</p>
+          <div class="chip-row">
+            <span class="chip">热血</span>
+            <span class="chip">日常</span>
+            <span class="chip">悬疑</span>
+            <span class="chip">科幻</span>
+            <span class="chip">恋爱</span>
+            <span class="chip">奇幻</span>
+            <span class="chip">运动</span>
+          </div>
+        </div>
+        <div class="filter-card">
+          <h3>按年份、篇幅与连载状态</h3>
+          <p>年份帮助判断画风与制作技术背景，篇幅决定投入时间：单季短篇适合零散时间，长篇连续剧更适合稳定追番的人。连载状态则影响预期——完结作品可一次规划观看，连载中的作品需要关注更新节奏。</p>
+          <p>建议把“是否完结”作为第二个筛选条件，先筛掉需要长期等待的作品，再按题材排序，效率会明显提高。</p>
+          <div class="chip-row">
+            <span class="chip gold">已完结</span>
+            <span class="chip gold">连载中</span>
+            <span class="chip gold">单季短篇</span>
+            <span class="chip gold">长篇系列</span>
+            <span class="chip gold">剧场版</span>
+            <span class="chip gold">衍生作</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 资源导航 -->
+  <section class="section" id="navmap">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Navigation</div>
+        <h2>动漫星空官网的资源导航结构</h2>
+        <p>导航的价值在于让访问者在两三次点击内到达目标页面。动漫星空官网的导航按“索引—专题—资料—讨论”的顺序排列，下列条目说明每类入口的用途与当前状态，避免把占位链接误当成真实内容。</p>
+      </div>
+      <div class="nav-list">
+        <div class="nav-row">
+          <span class="idx">01</span>
+          <div>
+            <h3>题材分类索引</h3>
+            <p>按题材聚合作品条目，是使用频率最高的入口。适合已有明确偏好、只想快速浏览同类作品的人。</p>
+            <span class="state">内容整理中</span>
+          </div>
+        </div>
+        <div class="nav-row">
+          <span class="idx">02</span>
+          <div>
+            <h3>季度新番专题</h3>
+            <p>以播出季度为单位整理当季作品，方便对比同季阵容与制作班底，也便于回顾错过的档期。</p>
+            <span class="state">内容整理中</span>
+          </div>
+        </div>
+        <div class="nav-row">
+          <span class="idx">03</span>
+          <div>
+            <h3>系列观看顺序资料</h3>
+            <p>面向多季、多剧场版的系列作品，说明主线与支线的先后关系，减少因顺序错乱造成的理解障碍。</p>
+            <span class="state">内容整理中</span>
+          </div>
+        </div>
+        <div class="nav-row">
+          <span class="idx">04</span>
+          <div>
+            <h3>制作与声优资料页</h3>
+            <p>整理导演、编剧、音乐与主要配音信息，适合关注幕后阵容、想按创作者线索找作品的读者。</p>
+            <span class="state">内容整理中</span>
+          </div>
+        </div>
+        <div class="nav-row">
+          <span class="idx">05</span>
+          <div>
+            <h3>专题盘点与主题合集</h3>
+            <p>围绕某一主题横向串联多部作品，例如同类型对照或同年代回顾，适合做拓展浏览。</p>
+            <span class="state">内容整理中</span>
+          </div>
+        </div>
+        <div class="nav-row">
+          <span class="idx">06</span>
+          <div>
+            <h3>社区话题与讨论入口</h3>
+            <p>进入作品讨论版块，阅读他人观点或参与交流。发帖前请先确认版块主题与基本发言规范。</p>
+            <span class="state">内容整理中</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用步骤 -->
+  <section class="section alt" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Steps</div>
+        <h2>第一次使用动漫星空官网的四步流程</h2>
+        <p>把访问拆成四个动作，可以显著减少无效点击。以下步骤适用于大多数访问者，顺序可按实际需求调整。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>确认目标</h3>
+          <p>先想清楚是找一部具体作品、按题材浏览，还是想了解制作信息。目标不同，进入的栏位也不同。</p>
+        </div>
+        <div class="step">
+          <h3>选择维度</h3>
+          <p>用题材、年份或连载状态中的一个作为主筛选条件，再叠加一个次要条件，避免一次设置过多限制。</p>
+        </div>
+        <div class="step">
+          <h3>核对资料</h3>
+          <p>阅读作品页的季数关系与简介，确认是否符合预期，尤其注意系列作的观看顺序说明。</p>
+        </div>
+        <div class="step">
+          <h3>参与交流</h3>
+          <p>有想法时进入对应讨论版块，先浏览既有话题再发言，能减少重复提问和偏离主题的情况。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 社区 -->
+  <section class="section" id="community">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Community</div>
+        <h2>动漫星空官网的社区交流方式与基本规则</h2>
+        <p>动漫星空官网的社区部分承担“交换看法”的功能。好的讨论依赖清晰的主题和基本的表达边界，以下说明能帮助新成员更快融入。</p>
+      </div>
+      <div class="community">
+        <div class="community-main">
+          <h3>话题从哪里开始</h3>
+          <p>常见的讨论起点有三类：一是围绕单部作品的剧情与角色展开，二是比较同类作品的叙事差异，三是分享追番节奏与观看体验。选择与版块主题一致的方向，讨论更容易得到回应。</p>
+          <p>发帖时建议在标题中写明作品名称与讨论角度，例如“某作第二季改编节奏讨论”，比笼统的“聊聊这部”更利于他人判断是否参与。</p>
+          <p>对于尚未播完的作品，涉及关键剧情的发言应主动提示，避免影响他人观看体验。动漫星空官网的讨论氛围依靠参与者共同维护，而不是依赖单一管理手段。</p>
+        </div>
+        <aside class="rule-box">
+          <h3>参与讨论的基本约定</h3>
+          <ul>
+            <li>围绕动漫作品与相关话题发言，不发布无关广告</li>
+            <li>涉及剧情关键内容时先做提示，尊重他人观看进度</li>
+            <li>对不同观点保持基本礼貌，不针对个人进行攻击</li>
+            <li>转载他人内容时注明来源，不冒充原创</li>
+            <li>不发布来源不明的下载地址或可疑外部链接</li>
+            <li>发现违规内容可通过页面提供的反馈方式说明</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安全提示 -->
+  <section class="section alt" id="safety">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Safety</div>
+        <h2>浏览动漫星空官网时需要注意的三件事</h2>
+        <p>动漫类站点常被用作引流跳板，访问时保持基本判断可以减少麻烦。以下提示与动漫星空官网的使用场景直接相关。</p>
+      </div>
+      <div class="safety-grid">
+        <div class="safety">
+          <h3>区分站内与站外链接</h3>
+          <p>导航区会标注入口类型。跳转到站外页面时，注意地址栏变化，不要在不熟悉的页面输入账号密码或支付信息。</p>
+        </div>
+        <div class="safety">
+          <h3>不要轻信“必看资源”</h3>
+          <p>任何以“独家”“必装”“一键获取”为卖点的引导都应保持警惕，下载未知程序前先确认来源与用途。</p>
+        </div>
+        <div class="safety">
+          <h3>理性看待更新与排期</h3>
+          <p>动画播出安排可能调整，资料类页面以公开信息整理为主。遇到与官方公告不一致的情况，应以官方渠道为准。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">FAQ</div>
+        <h2>关于动漫星空官网的常见问题</h2>
+        <p>以下问题来自访问者最常提出的疑虑，回答围绕站点定位与实际可做的事展开。</p>
+      </div>
+      <div class="faq-wrap">
+        <details class="faq-item" open>
+          <summary>动漫星空官网是什么类型的网站？</summary>
+          <div class="ans">动漫星空官网是面向动漫爱好者的信息与交流型站点，主要内容包括动画资讯整理、番剧题材分类、系列观看顺序资料、资源导航入口以及社区话题讨论。它侧重信息组织与交流引导，并不以提供作品播放为核心功能，具体可做的事以各栏目页面的实际说明为准。</div>
+        </details>
+        <details class="faq-item">
+          <summary>在动漫星空官网上能直接观看动画吗？</summary>
+          <div class="ans">不能据此认定动漫星空官网提供观看功能。页面主要呈现作品资料、分类索引与讨论内容，是否可观看取决于具体页面标注。若页面没有明确说明，应视为仅提供信息整理，不要将其当作播放平台使用。</div>
+        </details>
+        <details class="faq-item">
+          <summary>怎样快速找到想看的题材？</summary>
+          <div class="ans">建议先进入题材分类索引，选定一到两个主题材，再叠加年份或连载状态作为次要条件。筛选条件过多会让结果失去区分度，反而不利于比较。确定方向后再阅读作品简介与系列关系说明，判断成本更低。</div>
+        </details>
+        <details class="faq-item">
+          <summary>系列作品应该按什么顺序看？</summary>
+          <div class="ans">多季与剧场版作品通常有主线与支线之分。动漫星空官网的系列资料页会说明季数关系与衍生作位置，建议先看主线顺序，再按兴趣补充支线。若资料尚未完善，可参考作品官方公开信息交叉确认。</div>
+        </details>
+        <details class="faq-item">
+          <summary>如何参与动漫星空官网的社区讨论？</summary>
+          <div class="ans">进入对应作品或话题版块后，先浏览已有内容，确认讨论方向后再发言。标题写明作品与讨论角度更容易获得回应。涉及关键剧情时主动提示，避免影响他人观看体验，同时不要发布无关广告或来源不明的链接。</div>
+        </details>
+        <details class="faq-item">
+          <summary>页面里的导航入口为什么标注“内容整理中”？</summary>
+          <div class="ans">标注“内容整理中”表示该入口对应的页面尚未完善，暂不提供可访问的完整内容。这样标注是为了避免把占位链接伪装成真实页面。动漫星空官网会在内容整理完成后更新入口状态，访问者不必反复尝试点击。</div>
+        </details>
+        <details class="faq-item">
+          <summary>资料与官方信息不一致时以哪个为准？</summary>
+          <div class="ans">动漫星空官网的资料属于公开信息整理，播出安排、制作阵容等内容可能随官方调整而变化。遇到不一致时，应以作品官方渠道发布的公告为准，并可把差异反馈给站点，便于后续修正。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>从分类索引开始你的下一次追番</h2>
+          <p>先确定题材与连载状态，再看系列顺序资料，最后进入讨论版块交流看法。动漫星空官网把这几步放在同一条路径上，减少来回切换的成本。</p>
+        </div>
+        <a class="btn-main" href="#filter">查看分类维度</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div class="foot-col">
+      <div class="foot-brand">动漫星空官网</div>
+      <p>本页围绕动漫星空官网的定位、栏目结构、筛选方式、导航说明与社区规则展开，帮助访问者理解站点用途并合理使用各类信息。</p>
+    </div>
+    <div class="foot-col">
+      <p>动漫星空官网的内容以公开信息整理与交流引导为主，不构成观看或下载承诺。涉及作品排期与制作的说明请以官方公告为准，访问外部链接时请自行判断安全性。</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+  </html>
